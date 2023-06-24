@@ -10,22 +10,17 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * <p>
  * 角色
- * </p>
- *
- * @author qy
- * @since 2019-11-08
  */
 @Data
 @ApiModel(description = "角色")
-@TableName("role")
+@TableName("role") // 表名注解，标识实体类对应的表
 public class Role extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ApiModelProperty(value = "角色名称")
-	@TableField("role_name")
+	@ApiModelProperty(value = "角色名称")  //swagger注解提示
+	@TableField("role_name") // 字段注解，非主键
 	private String roleName;
 
 	@ApiModelProperty(value = "备注")

@@ -18,7 +18,7 @@ import java.util.Map;
 public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "id")
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.AUTO)   //主键注解，type = IdType.AUTO（数据库 ID 自增）
     private Long id;
 
     @ApiModelProperty(value = "创建时间")
@@ -32,8 +32,8 @@ public class BaseEntity implements Serializable {
     private Date updateTime;
 
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
-    @JsonIgnore
-    @TableLogic
+    @JsonIgnore   // 由fastxml提供的注解，在序列化和反序列化过程中会自动忽略该字段
+    @TableLogic   // 逻辑删除
     @TableField("is_deleted")
     private Integer isDeleted;
 

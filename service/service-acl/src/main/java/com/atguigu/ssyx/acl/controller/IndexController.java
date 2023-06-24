@@ -3,19 +3,22 @@ package com.atguigu.ssyx.acl.controller;
 import com.atguigu.ssyx.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Api(tags = "登录接口")
+@Api(tags = "登录接口") // 在Swagger的页面中增加
 @RestController
 @RequestMapping("/admin/acl/index")
 @CrossOrigin   //跨域
 public class IndexController {
 
     //  http://localhost:8201/admin/acl/index/login
-    //  1 login登录
     @ApiOperation("登录")
     @PostMapping("login")
     public Result login() {
@@ -25,9 +28,7 @@ public class IndexController {
         return Result.ok(map);
     }
 
-    //  url: '/admin/acl/index/info',
-    //  method: 'get',
-    //2 getInfo 获取信息
+    //  http://localhost:8201/admin/acl/index/info
     @ApiOperation("获取信息")
     @GetMapping("info")
     public Result info() {
@@ -37,9 +38,7 @@ public class IndexController {
         return Result.ok(map);
     }
 
-    //  url: '/admin/acl/index/logout',
-    //  method: 'post'
-    //3 logout 退出
+    //  url: '/admin/acl/index/logout'
     @ApiOperation("退出")
     @PostMapping("logout")
     public Result logout() {
